@@ -67,8 +67,8 @@ impl Combat {
     let mouse = mouse_rs::Mouse::new();
     loop {
       if unsafe { GetAsyncKeyState(VK_LBUTTON) }as u16 & 0x8000 != 0 {
-        mouse.release(&mouse_rs::types::keys::Keys::LEFT).unwrap();
         mouse.press(&mouse_rs::types::keys::Keys::LEFT).unwrap();
+        mouse.release(&mouse_rs::types::keys::Keys::LEFT).unwrap();
 
         std::thread::sleep(std::time::Duration::from_millis((((self.autoClicker * 10) - 300).abs()) as u64));
       }
